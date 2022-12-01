@@ -21,7 +21,11 @@ app.get('/app/', (req, res, next) => {
 })
 
 app.post('/app/roll', (req, res, next) => {
-  res.send(roll(6, 2, 1))
+  let sides = (typeof req.params.sides == 'undefined') ? 6 : parseInt(req.params.sides);
+  let dice = (typeof req.params.dice == 'undefined') ? 2 : parseInt(req.params.dice);
+  let rolls = (typeof req.params.rolls == 'undefined') ? 1 : parseInt(req.params.rolls);  
+
+res.send(roll(sides, dice, rolls))
 })
 
 app.get('/app/roll/:sides', (req, res, next) => {
