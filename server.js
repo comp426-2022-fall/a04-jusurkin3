@@ -20,7 +20,7 @@ app.get('/app/', (req, res, next) => {
   res.send('200 OK');
 })
 
-app.post('/app/roll', (req, res, next) => {
+app.use('/app/roll', (req, res, next) => {
   let sides = (typeof req.params.sides == 'undefined') ? 6 : parseInt(req.params.sides);
   let dice = (typeof req.params.dice == 'undefined') ? 2 : parseInt(req.params.dice);
   let rolls = (typeof req.params.rolls == 'undefined') ? 1 : parseInt(req.params.rolls);  
