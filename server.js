@@ -6,13 +6,16 @@ import { roll } from "./lib/roll.js"
 const args = minimist(process.argv.slice(2))
 
 import express from 'express'
+import bodyParser from 'body-parser'
+
 const app = express()
 const port = args.port
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
-app.get((req, res, next) => {
+app.use((req, res, next) => {
   res.status(404)
   res.send('404 NOT FOUND');
 })
@@ -26,7 +29,7 @@ app.post('/app/roll', (req, res, next) => {
   res.send(roll(6, 2, 1))
 })
 
-app.post('/app/roll/:sides', (req, res, next) => {
+app.get('/app/roll/:sides', (req, res, next) => {
   res.send(roll(parseInt(req.params.sides), 2, 1))
 })
 
