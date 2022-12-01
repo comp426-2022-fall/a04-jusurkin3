@@ -9,7 +9,7 @@ const app = express()
 const port = 5555;
 
 app.use(express.json());
-app.use(express.urlencoded({ extended: true });
+app.use(express.urlencoded({ extended: true }));
 
 app.get('/app/', (req, res) => {
   res.send('200 OK');
