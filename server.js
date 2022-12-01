@@ -2,7 +2,7 @@
 
 import minimist from 'minimist'
 //import * as cli from './lib/a03-jusurkin3/bin/cli.js'
-import { roll } from '/lib/a03-jusurkin3/lib/roll.js'
+import { roll } from '../lib/a03-jusurkin3/lib/roll.js'
 
 const args = minimist(process.argv.slice(2))
 
